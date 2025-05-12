@@ -10,3 +10,7 @@ Local install of N8N using Docker and Ngrok
 - Copy the ngrok subdomain to .env file
 - Start n8n
 - `docker compose -f docker-compose_local.yml up`
+
+## Development
+- Check telegram API is OK
+- `nc -zv api.telegram.org 443`
