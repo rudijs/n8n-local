@@ -9,4 +9,4 @@ Local install of N8N using Docker and Ngrok
 - `ngrok http http://localhost:5678`
 - Copy the ngrok subdomain to .env file
 - Start n8n
-- `docker compose up`
+- `docker compose -f docker-compose_local.yml up`
