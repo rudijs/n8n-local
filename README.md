@@ -20,12 +20,21 @@
   1. Add n8n to docker compose
   2. Update .env file with n8n vars
 
-# Backups
-TODO: clean up
-docker exec -it n8n-local-n8n-1 n8n export:workflow --backup --output=/tmp
-docker exec -it n8n-local-n8n-1 n8n export:credentials --all --decrypted --output=/tmp/decrypted.json
-docker exec -it n8n-local-n8n-1 tar -xvf /tmp/wf-creds.tar /tmp/*.json
-docker cp n8n-local-n8n-1:/tmp/wf-creds.tar ./wf-creds.tar
+# Backup
+
+## Workflows
+- `docker exec -it n8n n8n export:workflow --backup --output=backups/latest/`
+- `docker cp n8n:/home/node/backups/latest ./archive/backups/latest`
+- Cleanup
+- `docker exec -it n8n rm -rf /home/node/backups`
+
+## Credentials
+- `docker exec -it n8n n8n export:credentials --all --decrypted --output=creds.json`
+- `docker cp n8n:/home/node/creds.json tmp/`
+- Copy to keepassxc
+- Cleanup
+- `shred -u tmp/creds.json`
+- `docker exec -it n8n shred -u /home/node/creds.json`
 
 # Import
 - Workflows
@@ -37,3 +46,4 @@ docker cp n8n-local-n8n-1:/tmp/wf-creds.tar ./wf-creds.tar
 - `docker exec -it n8n n8n import:credentials --input=/tmp/creds.json`
 - Clean Up
 - `docker exec -it n8n shred -u /tmp/creds.json`
+- `docker exec -it n8n rm -rf /tmp/backups`

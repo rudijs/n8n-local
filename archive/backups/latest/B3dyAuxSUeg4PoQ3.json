@@ -1,9 +1,9 @@
 {
   "createdAt": "2025-05-14T07:21:18.179Z",
-  "updatedAt": "2025-05-15T03:24:29.000Z",
+  "updatedAt": "2025-05-17T11:32:14.000Z",
   "id": "B3dyAuxSUeg4PoQ3",
   "name": "MCP Server 1",
-  "active": true,
+  "active": false,
   "nodes": [
     {
       "parameters": {
@@ -13,7 +13,7 @@
       "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
       "typeVersion": 1,
       "position": [
-        -320,
+        -228,
         -280
       ],
       "id": "65043f71-3df9-40f5-b98a-e33e4ad8a2aa",
@@ -34,7 +34,7 @@
       "type": "n8n-nodes-base.dateTimeTool",
       "typeVersion": 2,
       "position": [
-        -240,
+        -320,
         -60
       ],
       "id": "b1902acf-3b18-4969-afe4-99eec450b1a8",
@@ -57,7 +57,7 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -20,
+        -200,
         -60
       ],
       "id": "fe126b55-2878-447a-adcf-3b8247872d35",
@@ -84,7 +84,7 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        160,
+        -80,
         -60
       ],
       "id": "afd6f3bc-d40e-49c5-9004-d5047cfe2ffb",
@@ -112,7 +112,7 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        360,
+        40,
         -60
       ],
       "id": "9e764e6c-03c3-458c-b5c8-8ca786e9bbad",
@@ -179,7 +179,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "25a0642d-142d-45cc-b689-1a56bbff4178",
+  "versionId": "75ffde4b-721e-485c-9b09-6b2ce2efc50d",
   "triggerCount": 1,
   "tags": []
 }

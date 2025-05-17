@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-05-15T09:58:00.878Z",
-  "updatedAt": "2025-05-15T10:06:12.000Z",
+  "updatedAt": "2025-05-17T11:30:21.000Z",
   "id": "sUbciQTISgBDkmEf",
   "name": "MCP Client 2",
   "active": false,
@@ -61,7 +61,7 @@
     },
     {
       "parameters": {
-        "sseEndpoint": "https://8f26-120-29-86-81.ngrok-free.app/mcp/590a1400-10e5-4b71-90be-a390e53f0a13/sse",
+        "sseEndpoint": "https://1e68-120-28-187-107.ngrok-free.app/mcp/590a1400-10e5-4b71-90be-a390e53f0a13/sse",
         "authentication": "bearerAuth"
       },
       "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
@@ -151,7 +151,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "d96faf7f-10ec-4eac-9239-2808db994a26",
+  "versionId": "4bc724be-d76d-4bcd-bad1-c7a8b931340f",
   "triggerCount": 0,
   "tags": []
 }
