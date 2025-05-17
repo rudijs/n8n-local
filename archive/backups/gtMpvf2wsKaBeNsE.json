@@ -1,0 +1,129 @@
+{
+  "createdAt": "2025-05-14T07:37:26.110Z",
+  "updatedAt": "2025-05-15T03:26:25.000Z",
+  "id": "gtMpvf2wsKaBeNsE",
+  "name": "MCP Client 1",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -660,
+        -40
+      ],
+      "id": "0dcdfa5a-f043-449f-b06b-21ad01a743a2",
+      "name": "When chat message received",
+      "webhookId": "3881e5e2-0ed0-4747-99f1-e2c04dc016b4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Steps to follow\n\nUse the Date and Time tool always to check the current datetime.\n\nUse the Google Calendar tool to help the use create, read, update and delete calendar events and tasks\n\n# User message\n\n{{ $json.chatInput }}\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -440,
+        -40
+      ],
+      "id": "8bf34410-d8fe-4fd9-ad86-42e3a2979b7f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-3-7-sonnet-20250219",
+          "cachedResultName": "Claude 3.7 Sonnet"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -540,
+        180
+      ],
+      "id": "7d20dfc0-c8e9-469c-8ceb-6487da278da7",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "Oy3TeFj69s2UzWWD",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sseEndpoint": "https://8f26-120-29-86-81.ngrok-free.app/mcp/590a1400-10e5-4b71-90be-a390e53f0a13/sse",
+        "authentication": "bearerAuth"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        180
+      ],
+      "id": "ce9b165a-6232-432e-be18-efcb56bac0d9",
+      "name": "MCP Client",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "T1mZXTQ8vixFbqit",
+          "name": "Bearer Auth account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "eec0b2e1-d514-4168-8905-b4de86a67ff8",
+  "triggerCount": 0,
+  "tags": []
+}

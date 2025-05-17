@@ -1,0 +1,185 @@
+{
+  "createdAt": "2025-05-14T07:21:18.179Z",
+  "updatedAt": "2025-05-15T03:24:29.000Z",
+  "id": "B3dyAuxSUeg4PoQ3",
+  "name": "MCP Server 1",
+  "active": true,
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "bearerAuth",
+        "path": "590a1400-10e5-4b71-90be-a390e53f0a13"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -280
+      ],
+      "id": "65043f71-3df9-40f5-b98a-e33e4ad8a2aa",
+      "name": "MCP Server Trigger",
+      "webhookId": "590a1400-10e5-4b71-90be-a390e53f0a13",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "T1mZXTQ8vixFbqit",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "outputFieldName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Output_Field_Name', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTimeTool",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        -60
+      ],
+      "id": "b1902acf-3b18-4969-afe4-99eec450b1a8",
+      "name": "Date and Time"
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "rudi.starcevic@gmail.com",
+          "mode": "list",
+          "cachedResultName": "rudi.starcevic@gmail.com"
+        },
+        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
+        "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
+        "additionalFields": {
+          "summary": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Summary', ``, 'string') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        -20,
+        -60
+      ],
+      "id": "fe126b55-2878-447a-adcf-3b8247872d35",
+      "name": "Google Calendar Create",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "dwfYf0fHYZKlkqAG",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "rudi.starcevic@gmail.com",
+          "mode": "list",
+          "cachedResultName": "rudi.starcevic@gmail.com"
+        },
+        "eventId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Event_ID', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        160,
+        -60
+      ],
+      "id": "afd6f3bc-d40e-49c5-9004-d5047cfe2ffb",
+      "name": "Google Calendar Delete",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "dwfYf0fHYZKlkqAG",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "rudi.starcevic@gmail.com",
+          "mode": "list",
+          "cachedResultName": "rudi.starcevic@gmail.com"
+        },
+        "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', ``, 'string') }}",
+        "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        360,
+        -60
+      ],
+      "id": "9e764e6c-03c3-458c-b5c8-8ca786e9bbad",
+      "name": "Google Calendar GetAll",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "dwfYf0fHYZKlkqAG",
+          "name": "Google Calendar account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Date and Time": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar Create": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar Delete": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar GetAll": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "25a0642d-142d-45cc-b689-1a56bbff4178",
+  "triggerCount": 1,
+  "tags": []
+}

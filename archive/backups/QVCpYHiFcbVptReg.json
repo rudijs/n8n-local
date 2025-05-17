@@ -1,0 +1,51 @@
+{
+  "createdAt": "2025-05-14T06:57:22.814Z",
+  "updatedAt": "2025-05-14T07:04:50.000Z",
+  "id": "QVCpYHiFcbVptReg",
+  "name": "Gmail Labeling",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "labelIds": [
+            "Label_8222447833114355794"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -560,
+        -240
+      ],
+      "id": "c8e3f462-9f78-4509-b83a-5b60d25e75f0",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "X09dcSVwdzIeSgjG",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "21c09308-dab1-4365-b1ac-ed4d73bd748e",
+  "triggerCount": 0,
+  "tags": []
+}
