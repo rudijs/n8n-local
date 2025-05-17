@@ -5,6 +5,11 @@
 2. Update .env file with new ngrok subdomain name
 3. Start full stack
   - `docker compose up -d`
+4. Web UIs
+  - [n8n](http://localhost:5678)
+  - [Supabase](http://localhost:8000)
+  - [Open WebUI](http://localhost:3000)
+  - [Ngrok Web Interface](http://127.0.0.1:4040)
 
 # Project setup
 
