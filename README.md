@@ -21,12 +21,19 @@
   2. Update .env file with n8n vars
 
 # Backups
+TODO: clean up
 docker exec -it n8n-local-n8n-1 n8n export:workflow --backup --output=/tmp
 docker exec -it n8n-local-n8n-1 n8n export:credentials --all --decrypted --output=/tmp/decrypted.json
 docker exec -it n8n-local-n8n-1 tar -xvf /tmp/wf-creds.tar /tmp/*.json
 docker cp n8n-local-n8n-1:/tmp/wf-creds.tar ./wf-creds.tar
 
 # Import
-docker cp ./wf-creds ......
-n8n import:credentials --separate --input=backups/latest/
-n8n import:workflow --separate --input=backups/latest/
+- Workflows
+- `docker cp ./archive/backups n8n:/tmp`
+- `docker exec -it n8n n8n import:workflow --separate --input=/tmp/backups`
+- Credentials
+- Copy the creds.json file from keepassxc to /tmp/creds.json
+- `docker cp ./tmp/creds.json n8n:/tmp`
+- `docker exec -it n8n n8n import:credentials --input=/tmp/creds.json`
+- Clean Up
+- `docker exec -it n8n shred -u /tmp/creds.json`
